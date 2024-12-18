@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "Get current week number",
+    "version": "3.0.0",
+    "description": "Shows the current week number, in the extension icon and popup. Useful for sorting notes.",
+    "icons": {
+        "16": "icons/logo.svg",
+        "48": "icons/logo.svg",
+        "128": "icons/logo.svg"
+    },
+    "permissions": [
+        "activeTab",
+        "storage",
+        "clipboardWrite"
+    ],
+    "background": {
+        "scripts": ["background.js"],
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_icon": "icons/logo.svg",
+        "default_title": "Week Number",
+        "default_popup": "popup/index.html"
+    }
+  }
