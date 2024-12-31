@@ -4,10 +4,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
-	<script src="script.js"></script>
+	<script src="colorPicker.js" defer></script>
+	<script src="script.js" defer></script>
 	<title>Document</title>
 </head>
-<body style="--accent:blue" class="accent _dark">
+<body style="--accent:#ACBAF3" class="accent _dark">
+	<div style="display: none;" class="svgs">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" id="check"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+	</div>
 	<div class="container">
 		<nav>
 			<a href="#settings">
@@ -18,15 +22,14 @@
 				<a href="#settings"><span>Settings</span></a>
 			</div>
 		</nav>
-
 		<main>
-			<div class="tab" id="home">
+			<div class="tab active" id="home">
 				<p class="eyebrow">Current week</p>
-				<h1>XX</h1>
+				<h1 tabindex="0">X</h1>
 			</div>
 			<div class="tab" id="settings">
 				<div class="group">
-					<a href="#">
+					<a href="#settings_copy">
 						<div class="icon">
 							<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 								<path d="M7.5 15C7.04167 15 6.64931 14.8368 6.32292 14.5104C5.99653 14.184 5.83333 13.7916 5.83333 13.3333V3.33329C5.83333 2.87496 5.99653 2.4826 6.32292 2.15621C6.64931 1.82982 7.04167 1.66663 7.5 1.66663H15C15.4583 1.66663 15.8507 1.82982 16.1771 2.15621C16.5035 2.4826 16.6667 2.87496 16.6667 3.33329V13.3333C16.6667 13.7916 16.5035 14.184 16.1771 14.5104C15.8507 14.8368 15.4583 15 15 15H7.5ZM7.5 13.3333H15V3.33329H7.5V13.3333ZM4.16667 18.3333C3.70833 18.3333 3.31597 18.1701 2.98958 17.8437C2.66319 17.5173 2.5 17.125 2.5 16.6666V4.99996H4.16667V16.6666H13.3333V18.3333H4.16667Z" fill-opacity="0.8"/>
@@ -37,7 +40,7 @@
 							<p>Enable, disable, costumize</p>
 						</div>
 					</a>
-					<a href="#">
+					<a href="#settings_popup">
 						<div class="icon">
 							<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 								<path d="M10 18.3333C8.86111 18.3333 7.78472 18.1145 6.77083 17.677C5.75695 17.2395 4.87153 16.6423 4.11458 15.8854C3.35764 15.1284 2.76042 14.243 2.32292 13.2291C1.88542 12.2152 1.66667 11.1388 1.66667 9.99996C1.66667 8.84718 1.89236 7.76385 2.34375 6.74996C2.79514 5.73607 3.40625 4.85413 4.17708 4.10413C4.94792 3.35413 5.84722 2.76038 6.875 2.32288C7.90278 1.88538 9 1.66663 10.1667 1.66663C11.2778 1.66663 12.3264 1.8576 13.3125 2.23954C14.2986 2.62149 15.1632 3.14926 15.9062 3.82288C16.6493 4.49649 17.2396 5.2951 17.6771 6.21871C18.1146 7.14232 18.3333 8.13885 18.3333 9.20829C18.3333 10.8055 17.8472 12.0312 16.875 12.8854C15.9028 13.7395 14.7222 14.1666 13.3333 14.1666H11.7917C11.6667 14.1666 11.5799 14.2013 11.5313 14.2708C11.4826 14.3402 11.4583 14.4166 11.4583 14.5C11.4583 14.6666 11.5625 14.9062 11.7708 15.2187C11.9792 15.5312 12.0833 15.8888 12.0833 16.2916C12.0833 16.9861 11.8924 17.5 11.5104 17.8333C11.1285 18.1666 10.625 18.3333 10 18.3333ZM5.41667 10.8333C5.77778 10.8333 6.07639 10.7152 6.3125 10.4791C6.54861 10.243 6.66667 9.9444 6.66667 9.58329C6.66667 9.22218 6.54861 8.92357 6.3125 8.68746C6.07639 8.45135 5.77778 8.33329 5.41667 8.33329C5.05556 8.33329 4.75695 8.45135 4.52083 8.68746C4.28472 8.92357 4.16667 9.22218 4.16667 9.58329C4.16667 9.9444 4.28472 10.243 4.52083 10.4791C4.75695 10.7152 5.05556 10.8333 5.41667 10.8333ZM7.91667 7.49996C8.27778 7.49996 8.57639 7.3819 8.8125 7.14579C9.04861 6.90968 9.16667 6.61107 9.16667 6.24996C9.16667 5.88885 9.04861 5.59024 8.8125 5.35413C8.57639 5.11801 8.27778 4.99996 7.91667 4.99996C7.55556 4.99996 7.25695 5.11801 7.02083 5.35413C6.78472 5.59024 6.66667 5.88885 6.66667 6.24996C6.66667 6.61107 6.78472 6.90968 7.02083 7.14579C7.25695 7.3819 7.55556 7.49996 7.91667 7.49996ZM12.0833 7.49996C12.4444 7.49996 12.7431 7.3819 12.9792 7.14579C13.2153 6.90968 13.3333 6.61107 13.3333 6.24996C13.3333 5.88885 13.2153 5.59024 12.9792 5.35413C12.7431 5.11801 12.4444 4.99996 12.0833 4.99996C11.7222 4.99996 11.4236 5.11801 11.1875 5.35413C10.9514 5.59024 10.8333 5.88885 10.8333 6.24996C10.8333 6.61107 10.9514 6.90968 11.1875 7.14579C11.4236 7.3819 11.7222 7.49996 12.0833 7.49996ZM14.5833 10.8333C14.9444 10.8333 15.2431 10.7152 15.4792 10.4791C15.7153 10.243 15.8333 9.9444 15.8333 9.58329C15.8333 9.22218 15.7153 8.92357 15.4792 8.68746C15.2431 8.45135 14.9444 8.33329 14.5833 8.33329C14.2222 8.33329 13.9236 8.45135 13.6875 8.68746C13.4514 8.92357 13.3333 9.22218 13.3333 9.58329C13.3333 9.9444 13.4514 10.243 13.6875 10.4791C13.9236 10.7152 14.2222 10.8333 14.5833 10.8333ZM10 16.6666C10.125 16.6666 10.2257 16.6319 10.3021 16.5625C10.3785 16.493 10.4167 16.4027 10.4167 16.2916C10.4167 16.0972 10.3125 15.868 10.1042 15.6041C9.89583 15.3402 9.79167 14.9444 9.79167 14.4166C9.79167 13.8333 9.99306 13.368 10.3958 13.0208C10.7986 12.6736 11.2917 12.5 11.875 12.5H13.3333C14.25 12.5 15.0347 12.2326 15.6875 11.6979C16.3403 11.1632 16.6667 10.3333 16.6667 9.20829C16.6667 7.52774 16.0243 6.12843 14.7396 5.01038C13.4549 3.89232 11.9306 3.33329 10.1667 3.33329C8.27778 3.33329 6.66667 3.97913 5.33333 5.27079C4 6.56246 3.33333 8.13885 3.33333 9.99996C3.33333 11.8472 3.98264 13.4201 5.28125 14.7187C6.57986 16.0173 8.15278 16.6666 10 16.6666Z" fill-opacity="0.8"/>
@@ -50,7 +53,7 @@
 					</a>
 				</div>
 				<div class="group">
-					<a href="#">
+					<a href="#settings_icon">
 						<div class="icon">
 							<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 								<path d="M1.66667 10C1.66667 8.77779 1.90278 7.64584 2.375 6.60418C2.84722 5.56251 3.49306 4.65973 4.3125 3.89584C5.13195 3.13196 6.07639 2.55209 7.14583 2.15626C8.21528 1.76043 9.36111 1.60418 10.5833 1.68751C10.8194 1.71529 11.0069 1.81598 11.1458 1.98959C11.2847 2.16321 11.3333 2.36807 11.2917 2.60418C11.25 2.84029 11.1354 3.02779 10.9479 3.16668C10.7604 3.30557 10.5486 3.36807 10.3125 3.35418C9.35417 3.31251 8.45486 3.44793 7.61458 3.76043C6.77431 4.07293 6.03472 4.53473 5.39583 5.14584C4.75695 5.75696 4.25347 6.47571 3.88542 7.30209C3.51736 8.12848 3.33333 9.02779 3.33333 10C3.33333 11.8611 3.97917 13.4375 5.27083 14.7292C6.5625 16.0208 8.13889 16.6667 10 16.6667C10.9583 16.6667 11.8507 16.4826 12.6771 16.1146C13.5035 15.7465 14.2222 15.2431 14.8333 14.6042C15.4722 13.9375 15.9444 13.1806 16.25 12.3333C16.5556 11.4861 16.6875 10.6042 16.6458 9.68751C16.6319 9.4514 16.6944 9.23959 16.8333 9.05209C16.9722 8.86459 17.1597 8.75001 17.3958 8.70834C17.6319 8.66668 17.8368 8.71529 18.0104 8.85418C18.184 8.99307 18.2847 9.18057 18.3125 9.41668C18.3958 10.625 18.2396 11.7639 17.8438 12.8333C17.4479 13.9028 16.875 14.8472 16.125 15.6667C15.3333 16.5278 14.4097 17.1875 13.3542 17.6458C12.2986 18.1042 11.1806 18.3333 10 18.3333C8.84722 18.3333 7.76389 18.1146 6.75 17.6771C5.73611 17.2396 4.85417 16.6458 4.10417 15.8958C3.35417 15.1458 2.76042 14.2639 2.32292 13.25C1.88542 12.2361 1.66667 11.1528 1.66667 10ZM15 7.50001C14.3056 7.50001 13.7153 7.25696 13.2292 6.77084C12.7431 6.28473 12.5 5.69446 12.5 5.00001C12.5 4.30557 12.7431 3.71529 13.2292 3.22918C13.7153 2.74307 14.3056 2.50001 15 2.50001C15.6944 2.50001 16.2847 2.74307 16.7708 3.22918C17.2569 3.71529 17.5 4.30557 17.5 5.00001C17.5 5.69446 17.2569 6.28473 16.7708 6.77084C16.2847 7.25696 15.6944 7.50001 15 7.50001Z" fill-opacity="0.8"/>
@@ -61,6 +64,178 @@
 							<p>Color and fontface</p>
 						</div> 
 					</a>
+				</div>
+			</div>
+			<div class="tab sub-tab" id="settings_copy">
+				<h2>Suffix & Prefix</h2>
+				<div class="group">
+					<p>Enable and/or disable</p>
+					<form id="prefixSuffix" class="chips">
+						<input type="checkbox" name="prefixSuffix" id="enablePrefix" value="light">
+						<label for="enablePrefix"">
+							<div class="selected"><svg><use href="#check"></svg></div>
+							Prefix
+						</label>
+						<input type="checkbox" name="prefixSuffix" id="enableSuffix" value="light">
+						<label for="enableSuffix"">
+							<div class="selected"><svg><use href="#check"></svg></div>
+							Suffix
+						</label>
+						<input type="checkbox" name="prefixSuffix" id="enableBoth" value="light">
+						<label for="enableBoth"">
+							<div class="selected"><svg><use href="#check"></svg></div>
+							Both
+						</label>
+						<input type="checkbox" name="prefixSuffix" id="enableNone" value="light">
+						<label for="enableNone"">
+							<div class="selected"><svg><use href="#check"></svg></div>
+							None
+						</label>
+					</form>
+				</div>
+				<div class="group">
+					<p>Prefix</p>
+					<form id="prefix" class="chips">
+						<input type="checkbox" name="prefix" id="prefixWeek" value="light">
+						<label for="prefixWeek"">
+							<div class="selected"><svg><use href="#check"></svg></div>
+							Week
+						</label>
+						<input type="checkbox" name="prefix" id="prefixSemana" value="light">
+						<label for="prefixSemana"">
+							<div class="selected"><svg><use href="#check"></svg></div>
+							Semana
+						</label>
+						<input type="checkbox" name="prefix" id="prefixUke" value="light">
+						<label for="prefixUke"">
+							<div class="selected"><svg><use href="#check"></svg></div>
+							Uke
+						</label>
+						<input type="checkbox" name="prefix" id="prefixCustom" value="light">
+						<label for="prefixCustom" class="label-with-editable-span">
+							<div class="selected"><svg><use href="#check"></svg></div>
+							<span contenteditable="true">Custom</span>
+						</label>
+					</form>
+				</div>
+				<div class="group">
+					<p>Suffix</p>
+					<form id="suffix" class="chips">
+						<input type="checkbox" name="suffix" id="suffixWeek" value="light">
+						<label for="suffixWeek"">
+							<div class="selected"><svg><use href="#check"></svg></div>
+							Week
+						</label>
+						<input type="checkbox" name="suffix" id="suffixSemana" value="light">
+						<label for="suffixSemana"">
+							<div class="selected"><svg><use href="#check"></svg></div>
+							Semana
+						</label>
+						<input type="checkbox" name="suffix" id="suffixUke" value="light">
+						<label for="suffixUke"">
+							<div class="selected"><svg><use href="#check"></svg></div>
+							Uke
+						</label>
+						<input type="checkbox" name="suffix" id="suffixCustom" value="light">
+						<label for="suffixCustom" class="label-with-editable-span">
+							<div class="selected"><svg><use href="#check"></svg></div>
+							<span contenteditable="true">Custom</span>
+						</label>
+					</form>
+				</div>
+			</div>
+			<div class="tab sub-tab" id="settings_popup">
+				<h2>Popup Theme</h2>
+				<div class="group">
+					<p>Theme</p>
+					<form id="popup-theme">
+						<input type="checkbox" name="popup-theme" id="theme_light" value="light">
+						<label for="theme_light"">
+							<div class="preview" style="background-color: #eee;"></div>
+							Light
+						</label>
+						<input type="checkbox" name="popup-theme" id="theme_dark" value="dark">
+						<label for="theme_dark">
+							<div class="preview" style="background-color: #333;"></div>
+							Dark
+						</label>
+						<input type="checkbox" name="popup-theme" id="theme_auto" value="auto">
+						<label for="theme_auto">
+							<div class="preview" style="background: linear-gradient(60deg, #333 0%, #333 50%, #fff 50%, #fff 100%);"></div>
+							Auto
+						</label>
+					</form>
+				</div>
+				<div class="group">
+					<p>Accent</p>
+					<form id="popup-accent">
+						<input type="checkbox" name="popup-accent" id="accent_grayscale" value="grayscale">
+						<label for="accent_grayscale">
+							<div class="preview" style="background-color: #eee;"></div>
+							Grayscale
+						</label>
+						<input type="checkbox" name="popup-accent" id="accent_custom" value="custom">
+						<label for="accent_custom">
+							<div class="preview" style="background-color: var(--accent);"></div>
+							Custom
+						</label>
+					</form>
+				</div>
+			</div>
+			<div class="tab sub-tab" id="settings_icon">
+				<h2>Icon</h2>
+				<div class="group">
+					<p>Color</p>
+					<form id="icon-color">
+						<input type="checkbox" name="icon-color" id="color_light" value="light">
+						<label for="color_light">
+							<div class="preview" style="background-color: #eee;"></div>
+						</label>
+						<input type="checkbox" name="icon-color" id="color_dark" value="dark">
+						<label for="color_dark">
+							<div class="preview" style="background-color: #333;"></div>
+						</label>
+						<input type="checkbox" name="icon-color" id="color_auto" value="auto">
+						<label for="color_auto">
+							<div class="preview" style="background: linear-gradient(60deg, #333 0%, #333 50%, #fff 50%, #fff 100%);"></div>
+						</label>
+						<input type="checkbox" name="icon-color" id="color_accent" value="accent">
+						<label for="color_accent">
+							<div class="preview" style="background-color: var(--accent);"></div>
+						</label>
+						<input type="checkbox" name="icon-color" id="color_custom" value="custom">
+						<label for="color_custom" style="position: relative;">
+							<button type="menu" class="preview" id="open-icon-color"></button>
+							<div class="icon colorpicker"></div>
+							<div class="icon check"></div>
+						</label>
+						<color-picker id="icon-custom"></color-picker>
+					</form>
+				</div>
+				<div class="group">
+					<p>Font</p>
+					<form id="icon-font">
+						<input type="checkbox" name="icon-font" id="color_inter" value="inter">
+						<label for="color_inter">
+							<div class="font inter">21</div>
+						</label>
+						<input type="checkbox" name="icon-font" id="color_roboto" value="roboto">
+						<label for="color_roboto">
+							<div class="font roboto">21</div>
+						</label>
+						<input type="checkbox" name="icon-font" id="color_rubik" value="rubik">
+						<label for="color_rubik">
+							<div class="font rubik">21</div>
+						</label>
+						<input type="checkbox" name="icon-font" id="color_silkscreen" value="silkscreen">
+						<label for="color_silkscreen">
+							<div class="font silkscreen">21</div>
+						</label>
+						<input type="checkbox" name="icon-font" id="color_rochester" value="rochester">
+						<label for="color_rochester">
+							<div class="font rochester">21</div>
+						</label>
+					</form>
 				</div>
 			</div>
 		</main>

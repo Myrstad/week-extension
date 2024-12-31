@@ -25,7 +25,7 @@ function getWeekNumber() {
     var d = new Date();
     let result = d.getWeek();
     return result;
-  }
+}
   
 async function setIconAndTitle() {
 	const weekNumber = getWeekNumber();

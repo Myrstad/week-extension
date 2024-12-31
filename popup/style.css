@@ -1,8 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+@font-face {
+    font-family: "Inter";
+    src: url('../fonts/Inter.ttf');
+}
+@font-face {
+    font-family: "Rochester";
+    src: url('../fonts/Rochester.ttf');
+}
+@font-face {
+    font-family: "RobotoSerif";
+    src: url('../fonts/RobotoSerif.ttf');
+}
+@font-face {
+    font-family: "RubikOne";
+    src: url('../fonts/RubikOne.ttf');
+}
+@font-face {
+    font-family: "Silkscreen";
+    src: url('../fonts/Silkscreen.ttf');
+}
 
 * {
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', 'Inter', sans-serif;
     letter-spacing: 5%;
 }
 
@@ -92,8 +112,15 @@ nav > a {
     height: 30px;
     border-radius: 15px;
     display: grid;
+    opacity: 0;
+    pointer-events: none;
     place-content: center;
     position: relative;
+}
+
+nav > a.active {
+    opacity: 1;
+    pointer-events: all;
 }
 
 nav .middle {
@@ -125,6 +152,31 @@ nav .middle a:nth-of-type(2){
     border-left: none;
     padding-right: 19px;
     border-radius: 0 15px 15px 0;
+}
+
+.tab {
+    display: none;
+}
+
+.tab.active {
+    display: block;
+}
+
+#home p {
+    margin-top: 32px;
+    font-size: 24px;
+    font-weight: bold;
+    opacity: .8;
+    text-align: center;
+    line-height: 1;
+}
+
+#home h1 {
+    line-height: 1;
+    font-size: 64px;
+    font-weight: 900;
+    text-align: center;
+    cursor: pointer;
 }
 
 #settings .group {
@@ -179,4 +231,141 @@ nav .middle a:nth-of-type(2){
 #settings .group .text .title {
     font-size: 12px;
     opacity: 1;
+}
+
+.sub-tab {
+    font-size: 12px;
+}
+
+.sub-tab h2 {
+    margin-top: 8px;
+    padding-bottom: 12px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.sub-tab .group {
+    padding-top: 4px;
+}
+
+.sub-tab p{
+    margin-bottom: 4px;
+    color: var(--clr-p800);
+}
+
+/* All forms kinda look the same */
+.sub-tab form {
+    display: flex;
+    gap: 2px;
+}
+
+.sub-tab form.disabled {
+    /* Visually diabled */
+    opacity: .5;
+}
+
+.sub-tab form input[type="checkbox"]{
+    opacity: 0;
+    position: fixed;
+    pointer-events: none;
+}
+
+.sub-tab form input[type="checkbox"]:focus + * {
+    outline: 1px solid red;
+}
+.sub-tab form input:checked + * {
+    background-color: var(--clr-p100);
+}
+
+.sub-tab form label {
+    border-radius: 4px;
+    border: 1px solid var(--clr-p800);
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    flex: 1;
+    padding: 3px;
+    padding-left: 7px;
+    color: var(--clr-p800);
+}
+
+.sub-tab form label:first-of-type {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+.sub-tab form label:last-of-type {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.sub-tab form label .preview {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    border: 1px solid var(--clr-p800);
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+
+.sub-tab form label .preview svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+.sub-tab form.chips label {
+    flex: 0 1 auto;
+    width: fit-content;
+    padding-right: 7px;
+    height: 18px;
+    gap: 2px;
+    border-radius: 4px;
+}
+
+input + label .selected{
+    display: none;
+}
+input:checked + label .selected{
+    display: unset;
+}
+
+.selected svg {
+    display: block;
+    fill: var(--clr-p800);
+    width: 16px;
+    height: 16px;
+}
+
+.font {
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inter {
+    font-family: 'Inter';
+}
+.roboto {
+    font-family: 'RobotoSerif';
+}
+.rubik {
+    font-family: 'RubikOne';
+}
+.silkscreen{
+    font-family: 'Silkscreen';
+}
+.rochester {
+    font-family: 'Rochester';
+}
+
+color-picker {
+    display: none;
+}
+
+color-picker:focus, color-picker:focus-within {
+    display: inline-block;
 }

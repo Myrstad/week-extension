@@ -1,0 +1,26 @@
+prefix: {
+    enabled: bool,
+    value: string
+    selected: string
+}
+
+suffix: {
+    enabled: bool,
+    value: string,
+    selected: string
+}
+
+popup: {
+    theme: string ["light" || "dark" || "auto"],
+    accent: string ["grayscale", "accent"]
+    accentColor: string [css/html color]
+}
+
+icon {
+    selected_font: string
+    font: string
+    fontSize: int
+    selected_color: string ["light", "dark", "auto", "accent", "custom"]
+    custom_color: string [css/html color]
+    color: string
+}
