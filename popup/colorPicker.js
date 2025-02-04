@@ -38,7 +38,7 @@ function hexToHSL(hex) {
       }
     var HSL = [Math.round(h*360), Math.round(s*100), Math.round(l*100)]
     return HSL;
-  }
+}
 
 class ColorPicker extends HTMLElement {
     constructor() {
@@ -56,16 +56,35 @@ class ColorPicker extends HTMLElement {
         :host {
             display: inline-block;
             background: var(--clr-p100);
-            padding: 10px;
             border-radius: 10px;
-            border: 1px solid var(--clr-p900);
+            border: 1px solid var(--clr-p900)
         }
-
+        .title {
+            height: 16px;
+            background-color: var(--clr-p200);
+            border-radius: 10px 10px 0 0;
+            font-size: 10px;
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-inline: 8px 2px;
+            fill: var(--clr-p800);
+        }
+        .title button {
+            all: unset;
+            width: 12px;
+            height: 12px;
+            background-color: var(--clr-p100);
+            border-radius: 6px;
+            cursor: pointer;
+        }
         .color-picker {
+            padding: 10px;
             display: flex;
             gap: 8px;
             align-items: center;
-            }
+        }
         .group {
             height: 64px;
             display: flex;
@@ -142,7 +161,14 @@ class ColorPicker extends HTMLElement {
             border: 1px solid #4FE9A6;
         }
         </style>
+        <div class="title">
+            <span>Select color</span>
+            <button>
+                <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M3.2 9.5L2.5 8.8L5.3 6L2.5 3.2L3.2 2.5L6 5.3L8.8 2.5L9.5 3.2L6.7 6L9.5 8.8L8.8 9.5L6 6.7L3.2 9.5Z"/></svg>
+            </button>
+        </div>
         <div class="color-picker">
+
             <div class="swatch">
                 <div class="indicator"></div>
             </div>
@@ -170,6 +196,11 @@ class ColorPicker extends HTMLElement {
         const thumb = this.shadowRoot.querySelector('.thumb');
         const button = this.shadowRoot.querySelector('.use-button');
         const input = this.shadowRoot.querySelector("input")
+        const close = this.shadowRoot.querySelector(".title button")
+
+        close.addEventListener("click", ()=>{
+            this.dispatchEvent(new CustomEvent("color-close"), {bubbles: true, composed: true})
+        })
     
         // State
         let hue = 0;

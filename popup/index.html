@@ -8,7 +8,7 @@
 	<script src="script.js" defer></script>
 	<title>Document</title>
 </head>
-<body style="--accent:#ACBAF3" class="accent _dark">
+<body style="--accent:#ACBAF3; --icon: white;" class="accent _dark">
 	<div style="display: none;" class="svgs">
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" id="check"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
 	</div>
@@ -176,9 +176,10 @@
 						</label>
 						<input type="checkbox" name="popup-accent" id="accent_custom" value="custom">
 						<label for="accent_custom">
-							<div class="preview" style="background-color: var(--accent);"></div>
+							<button type="none" class="preview" style="background-color: var(--accent)""></button>
 							Custom
 						</label>
+						<color-picker tabindex="-1" id="accent-custom-picker" style="transform: translate(-50%, -70%);"></color-picker>
 					</form>
 				</div>
 			</div>
@@ -186,7 +187,7 @@
 				<h2>Icon</h2>
 				<div class="group">
 					<p>Color</p>
-					<form id="icon-color">
+					<form id="icon-color" class="center">
 						<input type="checkbox" name="icon-color" id="color_light" value="light">
 						<label for="color_light">
 							<div class="preview" style="background-color: #eee;"></div>
@@ -205,16 +206,16 @@
 						</label>
 						<input type="checkbox" name="icon-color" id="color_custom" value="custom">
 						<label for="color_custom" style="position: relative;">
-							<button type="menu" class="preview" id="open-icon-color"></button>
+							<button class="preview" style="background-color: var(--icon);"></button>
 							<div class="icon colorpicker"></div>
 							<div class="icon check"></div>
 						</label>
-						<color-picker id="icon-custom"></color-picker>
+						<color-picker tabindex="-1" id="icon-custom"></color-picker>
 					</form>
 				</div>
 				<div class="group">
 					<p>Font</p>
-					<form id="icon-font">
+					<form id="icon-font" class="center">
 						<input type="checkbox" name="icon-font" id="color_inter" value="inter">
 						<label for="color_inter">
 							<div class="font inter">21</div>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 @font-face {
     font-family: "Inter";
     src: url('../fonts/Inter.ttf');
@@ -289,6 +289,11 @@ nav .middle a:nth-of-type(2){
     color: var(--clr-p800);
 }
 
+.sub-tab form.center label {
+    justify-content: center;
+    padding-left: 3px;
+}
+
 .sub-tab form label:first-of-type {
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
@@ -363,9 +368,15 @@ input:checked + label .selected{
 }
 
 color-picker {
-    display: none;
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -10%);
 }
 
 color-picker:focus, color-picker:focus-within {
-    display: inline-block;
+    opacity: 1;
+    pointer-events: unset;
 }

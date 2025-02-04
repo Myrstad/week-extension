@@ -66,6 +66,7 @@ formElements.forEach(formEl => {
         checkBoxes.forEach(box=>box.checked=false)
         e.target.checked = true
     })
+    formEl.addEventListener("submit", e=>e.preventDefault())
 })
 
 // Customizable (textfield like) form label and making sure functionality is kept in tact
@@ -89,6 +90,21 @@ editableLabels.forEach(label=>{
     })
 })
 
+// Color picker buttons
+const colorPickerButtons = document.querySelectorAll("label:has(button, + color-picker) button")
+colorPickerButtons.forEach(button=>{
+    button.addEventListener("click", (e)=>{
+        console.log(e.explicitOriginalTarget.tagName,e.explicitOriginalTarget.tagName=="BUTTON");
+        
+        if(e.explicitOriginalTarget.tagName=="BUTTON") {
+            const colorPicker = button.parentElement.nextElementSibling        
+            colorPicker.focus({focusVisible: true})
+        }
+        
+    })  
+
+})
+
 // Popup theme settings
 function setDarkMode() {
     document.querySelector("body").classList.add("dark")
@@ -107,4 +123,26 @@ darkModePreference.addEventListener("change", e=>{
         setLightMode();
 })
 
-// Icon change color
+// Test custom events on ´color-picker´
+
+document.querySelectorAll("color-picker").forEach(colorPicker=>{
+    console.log(colorPicker);
+    
+    colorPicker.addEventListener("color-close",e=>{
+        const labels = e.target.parentElement.querySelectorAll("label")
+        console.log(labels, labels.length, labels[labels.length - 1]);
+
+        labels[labels.length - 1].focus()
+    })
+
+    colorPicker.addEventListener("color-selected", e=>{
+        console.log(e.target.id);
+        if (e.target.id == "accent-custom-picker") {
+            document.body.style.setProperty("--accent", e.detail.color)
+        } else if (e.target.id == "icon-custom") {
+            document.body.style.setProperty("--icon", e.detail.color)
+        }
+        const labels = e.target.parentElement.querySelectorAll("label");
+        labels[labels.length - 1].focus()
+    })
+})
