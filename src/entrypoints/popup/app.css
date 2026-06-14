@@ -1,0 +1,84 @@
+/* Material 3 Definitions */
+:root {
+  --md-sys-color-primary: #9800d0;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #f8d8ff;
+  --md-sys-color-on-primary-container: #320047;
+  --md-sys-color-secondary: #69596d;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #f1dcf4;
+  --md-sys-color-on-secondary-container: #231728;
+  --md-sys-color-tertiary: #815250;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-tertiary-container: #ffdad8;
+  --md-sys-color-on-tertiary-container: #331111;
+  --md-sys-color-error: #ba1a1a;
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-error-container: #ffdad6;
+  --md-sys-color-on-error-container: #410002;
+  --md-sys-color-background: #fffbff;
+  --md-sys-color-on-background: #1e1b1e;
+  --md-sys-color-surface: #fffbff;
+  --md-sys-color-on-surface: #1e1b1e;
+  --md-sys-color-surface-variant: #ebdfea;
+  --md-sys-color-on-surface-variant: #4c444d;
+  --md-sys-color-outline: #7d747d;
+  --md-sys-color-outline-variant: #cec3cd;
+  --md-sys-color-shadow: #000000;
+  --md-sys-color-scrim: #000000;
+  --md-sys-color-inverse-surface: #332f33;
+  --md-sys-color-inverse-on-surface: #f6eff3;
+  --md-sys-color-inverse-primary: #ebb2ff;
+}
+
+:root {
+  /* --- General Colors --- */
+  --background: var(--md-sys-color-surface-variant, #eee);
+  --text-color: var(--md-sys-color-on-background, #222);
+  --text-muted: var(--md-sys-color-secondary, #333);
+  --container-color: var(--md-sys-color-on-primary, #fff);
+  --highlight: var(--md-sys-color-on-secondary, #fff);
+
+
+  /* --- Accordion --- */
+  --accordion-background: var(--md-sys-color-background, #fff);
+  --accordion-content-background: var(--container-color, #F5F5F5);
+  --accordion-color: var(--md-sys-color-on-background, #000);
+  --accordion-muted: var(--text-muted, #444);
+  --accordion-icon: var(--text-muted, #444);
+  --accordion-button-background: var(--md-sys-color-on-background, #000);
+  --accordion-button-color: var(--container-color, #fff);
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  min-width: 300px;
+  min-height: 240px;
+}
+
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 12px;
+  text-align: left;
+}
