@@ -31,4 +31,4 @@ Settings page in light theme with blue accent
  - Implement local storage for saving settings, both main scripts
  - Fix background script to work in both firefox- and chromium based browser (currently only works in Firefox)
  - Make color-picker as accessible as possible with keyboard only
- - Implement icons in popup theme and icon subsetting pages
+ - ~~Implement icons in popup theme and icon subsetting pages~~

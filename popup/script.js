@@ -51,6 +51,64 @@ function getWeekNumber() {
     return result;
 }
 
+// Local (extension) storage functionality/init
+/**
+ * 
+ * @param {String} key browser localstorage key name
+ * @param {Object} defaultValue default value (object) for key
+ * @returns {Promise} Promise with .[key] for preferences object
+ */
+async function initLocalstorage(key, defaultValue) {
+    return new Promise((resolve, reject) =>{
+        let preferences;
+        browser.storage.local.get(key).then(res=>{
+            if (res[key]) preferences = res
+            else {
+                preferences = defaultValue
+            
+                browser.storage.local.set( {[key]: preferences } ).catch(err=>{
+                    console.error(err);
+                    reject(err)
+                    return;
+                });
+            }
+            resolve(preferences)
+        }, err=>{
+            console.error(err);
+            reject(err);
+        });
+    })
+}
+
+initLocalstorage("suffix", {"enabled": false, "value": "custom", "custom": "<3" });
+
+initLocalstorage("prefix", { "enabled": true, "value": "Week", "custom": "Custom" });
+
+initLocalstorage("popup", { "theme": "auto", "accent": "accent", "accentColor": "#ACBAF3" });
+
+initLocalstorage("icon", {
+    "selectedFont": "Inter",
+    "font": "Inter",
+    "fontSize": 10,
+    "selectedColor": "auto",
+    "customColor": "#F3ACE6",
+    "color": "auto"
+});
+
+// Get from local storage
+async function getFromStorage(key) {
+    return new Promise((resolve, reject) => {
+        browser.storage.local.get(key).then(res=>{
+            console.log(`Fetched from ${key}:`, res[key]);
+            resolve(res[key]);
+        }).catch(err=>{
+            console.error("err:", err);
+            reject(err);
+        });
+    });
+}
+getFromStorage("icon");
+
 // Copy week number with/without prefix and suffix given from localstorage
 const resultElement = document.querySelector("#home h1")
 resultElement.textContent = getWeekNumber()
@@ -123,7 +181,7 @@ darkModePreference.addEventListener("change", e=>{
         setLightMode();
 })
 
-// Test custom events on ´color-picker´
+// Custom events on ´color-picker´
 
 document.querySelectorAll("color-picker").forEach(colorPicker=>{
     console.log(colorPicker);

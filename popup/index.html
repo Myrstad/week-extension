@@ -25,7 +25,7 @@
 		<main>
 			<div class="tab active" id="home">
 				<p class="eyebrow">Current week</p>
-				<h1 tabindex="0">X</h1>
+				<h1 tabindex="0" title="Click to copy">X</h1>
 			</div>
 			<div class="tab" id="settings">
 				<div class="group">
@@ -74,22 +74,22 @@
 						<input type="checkbox" name="prefixSuffix" id="enablePrefix" value="light">
 						<label for="enablePrefix"">
 							<div class="selected"><svg><use href="#check"></svg></div>
-							Prefix
+							<span>Prefix</span>
 						</label>
 						<input type="checkbox" name="prefixSuffix" id="enableSuffix" value="light">
 						<label for="enableSuffix"">
 							<div class="selected"><svg><use href="#check"></svg></div>
-							Suffix
+							<span>Suffix</span>
 						</label>
 						<input type="checkbox" name="prefixSuffix" id="enableBoth" value="light">
 						<label for="enableBoth"">
 							<div class="selected"><svg><use href="#check"></svg></div>
-							Both
+							<span>Both</span>
 						</label>
 						<input type="checkbox" name="prefixSuffix" id="enableNone" value="light">
 						<label for="enableNone"">
 							<div class="selected"><svg><use href="#check"></svg></div>
-							None
+							<span>None</span>
 						</label>
 					</form>
 				</div>
@@ -99,17 +99,17 @@
 						<input type="checkbox" name="prefix" id="prefixWeek" value="light">
 						<label for="prefixWeek"">
 							<div class="selected"><svg><use href="#check"></svg></div>
-							Week
+							<span>Week</span>
 						</label>
 						<input type="checkbox" name="prefix" id="prefixSemana" value="light">
 						<label for="prefixSemana"">
 							<div class="selected"><svg><use href="#check"></svg></div>
-							Semana
+							<span>Semana</span>
 						</label>
 						<input type="checkbox" name="prefix" id="prefixUke" value="light">
 						<label for="prefixUke"">
 							<div class="selected"><svg><use href="#check"></svg></div>
-							Uke
+							<span>Uke</span>
 						</label>
 						<input type="checkbox" name="prefix" id="prefixCustom" value="light">
 						<label for="prefixCustom" class="label-with-editable-span">
@@ -124,17 +124,17 @@
 						<input type="checkbox" name="suffix" id="suffixWeek" value="light">
 						<label for="suffixWeek"">
 							<div class="selected"><svg><use href="#check"></svg></div>
-							Week
+							<span>Week</span>
 						</label>
 						<input type="checkbox" name="suffix" id="suffixSemana" value="light">
 						<label for="suffixSemana"">
 							<div class="selected"><svg><use href="#check"></svg></div>
-							Semana
+							<span>Semana</span>
 						</label>
 						<input type="checkbox" name="suffix" id="suffixUke" value="light">
 						<label for="suffixUke"">
 							<div class="selected"><svg><use href="#check"></svg></div>
-							Uke
+							<span>Uke</span>
 						</label>
 						<input type="checkbox" name="suffix" id="suffixCustom" value="light">
 						<label for="suffixCustom" class="label-with-editable-span">
@@ -152,17 +152,17 @@
 						<input type="checkbox" name="popup-theme" id="theme_light" value="light">
 						<label for="theme_light"">
 							<div class="preview" style="background-color: #eee;"></div>
-							Light
+							<span>Light</span>
 						</label>
 						<input type="checkbox" name="popup-theme" id="theme_dark" value="dark">
 						<label for="theme_dark">
 							<div class="preview" style="background-color: #333;"></div>
-							Dark
+							<span>Dark</span>
 						</label>
 						<input type="checkbox" name="popup-theme" id="theme_auto" value="auto">
 						<label for="theme_auto">
 							<div class="preview" style="background: linear-gradient(60deg, #333 0%, #333 50%, #fff 50%, #fff 100%);"></div>
-							Auto
+							<span>Auto</span>
 						</label>
 					</form>
 				</div>
@@ -172,12 +172,12 @@
 						<input type="checkbox" name="popup-accent" id="accent_grayscale" value="grayscale">
 						<label for="accent_grayscale">
 							<div class="preview" style="background-color: #eee;"></div>
-							Grayscale
+							<span>Grayscale</span>
 						</label>
 						<input type="checkbox" name="popup-accent" id="accent_custom" value="custom">
 						<label for="accent_custom">
 							<button type="none" class="preview" style="background-color: var(--accent)""></button>
-							Custom
+							<span>Custom</span>
 						</label>
 						<color-picker tabindex="-1" id="accent-custom-picker" style="transform: translate(-50%, -70%);"></color-picker>
 					</form>

@@ -97,7 +97,7 @@ nav a.active::before {
     position: absolute;
     inset: 0;
     background-color: var(--clr-accent);
-    opacity: .2;
+    opacity: .3;
 }
 nav > a > *,
 nav a.active > * {
@@ -191,7 +191,7 @@ nav .middle a:nth-of-type(2){
     position: absolute;
     inset: 0;
     background-color: var(--clr-accent);
-    opacity: .2;
+    opacity: .1;
 }
 #settings .group a > * {
     z-index: 2;
@@ -275,6 +275,20 @@ nav .middle a:nth-of-type(2){
 }
 .sub-tab form input:checked + * {
     background-color: var(--clr-p100);
+    position: relative;
+    overflow: hidden;
+}
+
+.sub-tab form input:checked + *::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--accent);
+    opacity: .2;
+}
+
+.sub-tab form input:checked + * > *{
+    z-index: 2;
 }
 
 .sub-tab form label {
@@ -379,4 +393,5 @@ color-picker {
 color-picker:focus, color-picker:focus-within {
     opacity: 1;
     pointer-events: unset;
+    z-index: 5;
 }

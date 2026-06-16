@@ -179,7 +179,7 @@ class ColorPicker extends HTMLElement {
                     </div>
                     <input type="text" value="#ffffff" minlength="6" maxlength="7" pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$" />
                 </div>
-                <button class="use-button">Use</button>
+                <button class="use-button">Save</button>
             </div>
         </div>
         `;
